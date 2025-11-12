@@ -1,5 +1,26 @@
+x-airflow-common:
+  &airflow-common
+  image: apache/airflow:2.8.1
+  environment:
+    &airflow-common-env 
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__ALCHEMY_CONN: "postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@AIRFLOW/${AIRFLOW_DB}"
+    AIRFLOW__CORE_DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
+    _PIP_ADDITIONAL_REQUIREMENTS: ""
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+  user: "$0:0"
+  depends_on:
+    - postgres
+    - airflow_postgres
+
+
 services:
   postgres:
+    container_name: postgres
     image: postgres:latest
     ports:
       - "5433:5432"
@@ -10,6 +31,20 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/
     restart: always
+    networks:
+      - red-financial
+
+  postgres:
+    container_name: airflow-postgres
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: ${AIRFLOW_USER}
+      POSTGRES_PASSWORD: ${AIRFLOW_PASSWORD}
+      POSTGRES_DB: ${AIRFLOW_DB}
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
     networks:
       - red-financial
 

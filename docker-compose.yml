@@ -4,7 +4,7 @@ x-airflow-common:
   environment:
     &airflow-common-env 
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-    AIRFLOW__CORE__ALCHEMY_CONN: "postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@AIRFLOW/${AIRFLOW_DB}"
+    AIRFLOW__DATABASE__ALCHEMY_CONN: "postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@AIRFLOW/${AIRFLOW_DB}"
     AIRFLOW__CORE_DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ""

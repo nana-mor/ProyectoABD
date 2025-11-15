@@ -1,0 +1,22 @@
+[2025-11-15T20:12:11.909+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-15T20:12:11.944+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ejemplo_DAG.backup_postgres manual__2025-11-15T20:12:11.195991+00:00 [queued]>
+[2025-11-15T20:12:11.952+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ejemplo_DAG.backup_postgres manual__2025-11-15T20:12:11.195991+00:00 [queued]>
+[2025-11-15T20:12:11.953+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-11-15T20:12:11.967+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): backup_postgres> on 2025-11-15 20:12:11.195991+00:00
+[2025-11-15T20:12:11.974+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=175) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-15T20:12:11.974+0000] {standard_task_runner.py:63} INFO - Started process 176 to run task
+[2025-11-15T20:12:11.974+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ejemplo_DAG', 'backup_postgres', 'manual__2025-11-15T20:12:11.195991+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/ejemplo1.py', '--cfg-path', '/tmp/tmp7gxzkems']
+[2025-11-15T20:12:11.975+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask backup_postgres
+[2025-11-15T20:12:12.022+0000] {task_command.py:426} INFO - Running <TaskInstance: ejemplo_DAG.backup_postgres manual__2025-11-15T20:12:11.195991+00:00 [running]> on host c7208e142130
+[2025-11-15T20:12:12.121+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ejemplo_DAG' AIRFLOW_CTX_TASK_ID='backup_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-15T20:12:11.195991+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-15T20:12:11.195991+00:00'
+[2025-11-15T20:12:12.122+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-15T20:12:12.162+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-15T20:12:12.163+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "\n    echo 'Prueba DAG, to be or not to be, that is the question, wheather tis nobler in the mind to suffer the slings and arrow of autrageous fortune or to take arms asmgainst a sea of troubles and by oposing end them'\n    "]
+[2025-11-15T20:12:12.174+0000] {subprocess.py:86} INFO - Output:
+[2025-11-15T20:12:12.177+0000] {subprocess.py:93} INFO - Prueba DAG, to be or not to be, that is the question, wheather tis nobler in the mind to suffer the slings and arrow of autrageous fortune or to take arms asmgainst a sea of troubles and by oposing end them
+[2025-11-15T20:12:12.178+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-15T20:12:12.178+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-15T20:12:12.205+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ejemplo_DAG, task_id=backup_postgres, run_id=manual__2025-11-15T20:12:11.195991+00:00, execution_date=20251115T201211, start_date=20251115T201211, end_date=20251115T201212
+[2025-11-15T20:12:12.228+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-15T20:12:12.248+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-15T20:12:12.249+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,3 +1,4 @@
 airflow/logs/
 data/Financial.sql
 data/financial.sqlite
+airflow/dags/__pycache__/

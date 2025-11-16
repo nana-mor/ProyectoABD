@@ -1,1 +1,3 @@
 airflow/logs/
+data/Financial.sql
+data/financial.sqlite
